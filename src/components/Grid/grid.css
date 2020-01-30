@@ -1,0 +1,15 @@
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.div1 {
+  display: inline-grid;
+  grid-template-columns: repeat(4, [col-start] 1fr);
+  grid-gap: 10px;
+}
