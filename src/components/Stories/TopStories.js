@@ -6,6 +6,10 @@ var ReactDOM = require("react-dom");
 
 function Stories(props) {
   console.log(props.TopStories);
+  var style = {
+    paddingLeft: "6em",
+    paddingRight: "6em"
+  };
   return (
     <ImageGallery
       items={props.TopStories}
@@ -14,6 +18,7 @@ function Stories(props) {
       defaultImage="https://cdn.pixabay.com/photo/2017/08/17/13/33/classified-2651347_960_720.jpg"
       slideInterval={5000}
       thumbnailPosition="left"
+      style={style}
     />
   );
 }

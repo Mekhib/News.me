@@ -10,7 +10,19 @@ function SourceProp(props) {
     height: "13em",
     width: "21em",
     padding: "5px",
-    marginRight: "5em"
+    marginRight: "5em",
+    p: {
+      fontSize: "29px",
+      textAlign: "center",
+      top: "44em",
+      marginLeft: "0.0em",
+      background: "black",
+      color: "yellow",
+      borderRadius: "12px",
+      padding: "0em",
+      transform: "translate(8px, 127px)",
+      width: "270px"
+    }
   };
   return (
     <div
@@ -18,7 +30,7 @@ function SourceProp(props) {
       style={style}
       onClick={() => props.SourceSelection(props.index)}
     >
-      <p>{props.img}</p>
+      <p style={style.p}>{props.img}</p>
     </div>
   );
 }

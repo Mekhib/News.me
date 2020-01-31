@@ -33,7 +33,7 @@ class App extends Component {
       Selection: [],
       Sources: [],
       selected: false,
-      weather: null,
+      weather: [],
       style: {
         img: {
           width: "8em",
@@ -54,7 +54,8 @@ class App extends Component {
           display: "-webkit-inline-box",
           overflow: "scroll",
           width: "100%",
-          overflowY: "hidden"
+          overflowY: "hidden",
+          marginLeft: "1.5em"
           // gridTemplateColumns: "1fr 1fr 1fr 1fr",
           // gridTemplateRows: "1fr 1fr",
           // gridColumnGap: "20px",
@@ -63,11 +64,35 @@ class App extends Component {
           // alignItems: "center"
         },
         cards: {
-          marginLeft: "5em",
-          marginRight: "2em",
           overFlow: "scroll",
-          height: "41em",
-          marginTop: "11em"
+          height: "46em",
+          marginTop: "6em !important"
+        },
+        h1style: {
+          marginLeft: "70px",
+          fontFamily: "monospace"
+        },
+        search: {
+          width: "62em",
+          color: "yellow"
+        },
+        weather: {
+          fontSize: "x-large",
+          background: "black",
+          color: "yellow",
+          borderRadius: "12px",
+          width: "15em",
+          transform: "translate(22em, 1px)"
+        },
+        landingh1: {
+          minHeight: "1rem",
+          fontSize: "2rem",
+          marginLeft: "1.5em",
+          background: "black",
+          color: "yellow",
+          borderRadius: "12px",
+          width: "fit-content",
+          padding: "9px"
         }
       }
     };
@@ -192,13 +217,28 @@ class App extends Component {
             <h1 className="heading" style={this.state.style.header}>
               News.Me
             </h1>
-            {/* <p>
-            {this.state.weather.city} | {this.state.weather.temp} |{" "}
-            {this.state.weather.blurb}
-          </p> */}
+            <div class="ui search">
+              <div class="ui icon input" style={this.state.style.search}>
+                <input
+                  className="prompt"
+                  type="text"
+                  placeholder="Search Inpending!! Hold Tight..."
+                />
+                <i className="search icon"></i>
+              </div>
+            </div>
+            <p style={this.state.style.weather}>
+              {this.state.weather.city} | {this.state.weather.temp} |{" "}
+              {this.state.weather.blurb}
+            </p>
           </div>
-          <div className="ui horizontal cards">
-            <h1>Stories from {this.state.Selection.articles[0].source.name}</h1>
+
+          <h1 style={this.state.style.h1style}>
+            {" "}
+            <i className="newspaper icon" style={{ color: "yellow" }}></i>
+            Stories from {this.state.Selection.articles[0].source.name}
+          </h1>
+          <div className="ui horizontal cards" style={this.state.style.cards}>
             <Card data={this.state.Selection} />
           </div>
         </div>
@@ -216,19 +256,29 @@ class App extends Component {
             <h1 className="heading" style={this.state.style.header}>
               News.Me
             </h1>
-            {/* <p>
-            {this.state.weather.city} | {this.state.weather.temp} |{" "}
-            {this.state.weather.blurb}
-          </p> */}
+            <p style={this.state.style.weather}>
+              {this.state.weather.city} | {this.state.weather.temp} |{" "}
+              {this.state.weather.blurb}
+            </p>
+            <div class="ui search">
+              <div class="ui icon input" style={this.state.style.search}>
+                <input
+                  className="prompt"
+                  type="text"
+                  placeholder="Search Inpending!! Hold Tight..."
+                />
+                <i class="search icon"></i>
+              </div>
+            </div>
           </div>
-          <h1>Top Stories</h1>
+          <h1 style={this.state.style.landingh1}>Top Stories</h1>
           <Stories TopStories={this.state.TopStories} />
-          <h1>Catagories</h1>
+          <h1 style={this.state.style.landingh1}>Catagories</h1>
           <Grid
             Catogories={this.state.CatPics}
             CatagoryPicked={this.CatagoryPicked}
           />
-          <h1>Sources</h1>
+          <h1 style={this.state.style.landingh1}>Sources</h1>
           <div className="grid" style={this.state.style.logos}>
             <Source
               Images={this.state.Sources}

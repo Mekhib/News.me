@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 
 function Card(props) {
+  const style = {
+    width: "92em !important",
+    marginLeft: "5em !important"
+  };
   console.log(props);
   return props.data.articles.map(story => {
     return (
-      <div className="card">
+      <div
+        className="card"
+        style={{ width: "92em !important", marginLeft: "5em !important" }}
+      >
         <div className="image">
           <img src={story.urlToImage} />
         </div>
