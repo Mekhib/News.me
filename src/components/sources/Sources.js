@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 function SourceProp(props) {
+  console.log(props);
   var style = {
     borderRadius: "23px",
     backgroundImage: `url("https://logo.clearbit.com/${props.img}.com?size=200"), url("https://a57.foxnews.com/media.foxbusiness.com/BrightCove/854081161001/201909/1415/640/360/854081161001_6085087408001_6085084784001-vs.jpg")`,
@@ -15,7 +16,7 @@ function SourceProp(props) {
     <div
       className="logo"
       style={style}
-      onClick={() => props.SourceSelection(props.img)}
+      onClick={() => props.SourceSelection(props.index)}
     >
       <p>{props.img}</p>
     </div>

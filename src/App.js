@@ -4,6 +4,7 @@ import Catpics from "./components/Catagories/CatagoriesClass";
 import Stories from "./components/Stories/TopStories";
 import Grid from "./components/Grid/grid";
 import Source from "./components/sources/sourceclass";
+import Card from "./components/Card/Card";
 import "./app.css";
 const axios = require("axios");
 
@@ -52,13 +53,21 @@ class App extends Component {
         logos: {
           display: "-webkit-inline-box",
           overflow: "scroll",
-          width: "88em"
+          width: "100%",
+          overflowY: "hidden"
           // gridTemplateColumns: "1fr 1fr 1fr 1fr",
           // gridTemplateRows: "1fr 1fr",
           // gridColumnGap: "20px",
           // gridRowGap: "20px",
           // justifyItems: "stretch",
           // alignItems: "center"
+        },
+        cards: {
+          marginLeft: "5em",
+          marginRight: "2em",
+          overFlow: "scroll",
+          height: "41em",
+          marginTop: "11em"
         }
       }
     };
@@ -152,49 +161,83 @@ class App extends Component {
         );
       });
   };
-  SourceSelection = Source => {
+  SourceSelection = x => {
+    var index = this.state.Sources[x].id;
+    console.log("HERE!!!", index);
     axios
+
       .get(
         "https://newsapi.org/v2/everything?sources=" +
-          Source +
+          index +
           "&apiKey=91bec895cf8d45eaa46124fb19f6ad81"
       )
       .then(res => {
         console.log(res);
-        this.setState({ Selection: res, selected: true });
+        this.setState({ Selection: res.data, selected: true }, () =>
+          console.log(this.state.Selection)
+        );
       });
   };
   render() {
-    return (
-      <div>
-        <div style={this.state.style.div}>
-          <img
-            src="https://clipartart.com/images/latest-news-icon-clipart.png"
-            alt="Faux logo"
-            id="#logoimg"
-            style={this.state.style.img}
-          />
-          <h1 className="heading" style={this.state.style.header}>
-            News.Me
-          </h1>
-          {/* <p>
+    if (this.state.selected === true) {
+      return (
+        <div>
+          <div style={this.state.style.div}>
+            <img
+              src="https://clipartart.com/images/latest-news-icon-clipart.png"
+              alt="Faux logo"
+              id="#logoimg"
+              style={this.state.style.img}
+            />
+            <h1 className="heading" style={this.state.style.header}>
+              News.Me
+            </h1>
+            {/* <p>
             {this.state.weather.city} | {this.state.weather.temp} |{" "}
             {this.state.weather.blurb}
           </p> */}
+          </div>
+          <div className="ui horizontal cards">
+            <h1>Stories from {this.state.Selection.articles[0].source.name}</h1>
+            <Card data={this.state.Selection} />
+          </div>
         </div>
-        <h1>Top Stories</h1>
-        <Stories TopStories={this.state.TopStories} />
-        <h1>Catagories</h1>
-        <Grid
-          Catogories={this.state.CatPics}
-          CatagoryPicked={this.CatagoryPicked}
-        />
-        <h1>Sources</h1>
-        <div className="grid" style={this.state.style.logos}>
-          <Source Images={this.state.Sources} />
+      );
+    } else {
+      return (
+        <div>
+          <div style={this.state.style.div}>
+            <img
+              src="https://clipartart.com/images/latest-news-icon-clipart.png"
+              alt="Faux logo"
+              id="#logoimg"
+              style={this.state.style.img}
+            />
+            <h1 className="heading" style={this.state.style.header}>
+              News.Me
+            </h1>
+            {/* <p>
+            {this.state.weather.city} | {this.state.weather.temp} |{" "}
+            {this.state.weather.blurb}
+          </p> */}
+          </div>
+          <h1>Top Stories</h1>
+          <Stories TopStories={this.state.TopStories} />
+          <h1>Catagories</h1>
+          <Grid
+            Catogories={this.state.CatPics}
+            CatagoryPicked={this.CatagoryPicked}
+          />
+          <h1>Sources</h1>
+          <div className="grid" style={this.state.style.logos}>
+            <Source
+              Images={this.state.Sources}
+              SourceSelection={this.SourceSelection}
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

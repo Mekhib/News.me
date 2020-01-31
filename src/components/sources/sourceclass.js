@@ -6,9 +6,16 @@ class logo extends Component {
     console.log("hello", this.props.Images.data);
   }
   render() {
-    return this.props.Images.map(img => {
+    return this.props.Images.map((img, index) => {
       var result = img.id.replace(/-/g, "");
-      return <Sources img={result} />;
+      return (
+        <Sources
+          img={result}
+          index={index}
+          key={index}
+          SourceSelection={this.props.SourceSelection}
+        />
+      );
     });
   }
 }
