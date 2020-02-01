@@ -9,7 +9,7 @@ function Cat(props) {
     <div
       className="module"
       style={style}
-      onClick={props.CatPick(props.Catagory[props.index])}
+      onClick={() => props.CatPick(props.index)}
     >
       <header>
         <h1>{props.Catagory}</h1>

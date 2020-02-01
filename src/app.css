@@ -1,3 +1,9 @@
 #logoimg {
   width: 30em;
 }
+.ui.cards {
+  flex-wrap: wrap !important;
+  overflow: scroll !important;
+  height: 39em !important;
+  overflow-x: hidden !important;
+}

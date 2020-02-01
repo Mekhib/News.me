@@ -69,12 +69,14 @@ class App extends Component {
           marginTop: "6em !important"
         },
         h1style: {
-          marginLeft: "70px",
-          fontFamily: "monospace"
+          marginLeft: "92px",
+          fontFamily: "monospace",
+          marginBottom: "1em"
         },
         search: {
-          width: "62em",
-          color: "yellow"
+          width: "32%",
+          color: "yellow",
+          marginTop: "1.5em"
         },
         weather: {
           fontSize: "x-large",
@@ -82,7 +84,7 @@ class App extends Component {
           color: "yellow",
           borderRadius: "12px",
           width: "15em",
-          transform: "translate(22em, 1px)"
+          marginTop: "1em"
         },
         landingh1: {
           minHeight: "1rem",
@@ -164,15 +166,17 @@ class App extends Component {
         this.setState({ TopStories: array }, () => console.log(this.state));
       });
   };
-  CatagoryPicked = Cat => {
+  CatagoryPicked = x => {
+    var index = this.state.Catogories[x];
+    console.log(index);
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=us&category=" +
-          Cat +
-          "apiKey=91bec895cf8d45eaa46124fb19f6ad81"
+        `https://newsapi.org/v2/top-headlines?country=us&category=${index}&apiKey=91bec895cf8d45eaa46124fb19f6ad81`
       )
       .then(res => {
-        this.setState({ Selection: res, selected: true });
+        this.setState({ Selection: res.data, selected: true }, () => {
+          console.log(this.state.Selection);
+        });
       });
   };
   Source = async () => {
@@ -203,6 +207,9 @@ class App extends Component {
         );
       });
   };
+  home = () => {
+    this.setState({ selected: false });
+  };
   render() {
     if (this.state.selected === true) {
       return (
@@ -213,6 +220,7 @@ class App extends Component {
               alt="Faux logo"
               id="#logoimg"
               style={this.state.style.img}
+              onClick={this.home}
             />
             <h1 className="heading" style={this.state.style.header}>
               News.Me
@@ -227,18 +235,27 @@ class App extends Component {
                 <i className="search icon"></i>
               </div>
             </div>
-            <p style={this.state.style.weather}>
-              {this.state.weather.city} | {this.state.weather.temp} |{" "}
-              {this.state.weather.blurb}
-            </p>
+            <div
+              className="weatherDiv"
+              style={{ width: "100%", textAlign: "-webkit-center" }}
+            >
+              <p style={this.state.style.weather}>
+                {this.state.weather.city} | {this.state.weather.temp} |{" "}
+                {this.state.weather.blurb}
+              </p>
+            </div>
           </div>
 
           <h1 style={this.state.style.h1style}>
             {" "}
             <i className="newspaper icon" style={{ color: "yellow" }}></i>
-            Stories from {this.state.Selection.articles[0].source.name}
+            <strong>Your Story Selection</strong>
+            {/* Stories from {this.state.Selection.articles[0].source.name} */}
           </h1>
-          <div className="ui horizontal cards" style={this.state.style.cards}>
+          <div
+            className=" animated slideInLeft  ui horizontal cards"
+            style={this.state.style.cards}
+          >
             <Card data={this.state.Selection} />
           </div>
         </div>
@@ -252,15 +269,26 @@ class App extends Component {
               alt="Faux logo"
               id="#logoimg"
               style={this.state.style.img}
+              onClick={this.home}
+              className="animated fadeIn"
             />
-            <h1 className="heading" style={this.state.style.header}>
+            <h1
+              className="heading"
+              style={this.state.style.header}
+              className="animated fadeIn"
+            >
               News.Me
             </h1>
-            <p style={this.state.style.weather}>
-              {this.state.weather.city} | {this.state.weather.temp} |{" "}
-              {this.state.weather.blurb}
-            </p>
-            <div class="ui search">
+            <div
+              className="animated fadeIn weatherDiv"
+              style={{ width: "100%", textAlign: "-webkit-center" }}
+            >
+              <p style={this.state.style.weather}>
+                {this.state.weather.city} | {this.state.weather.temp} |{" "}
+                {this.state.weather.blurb}
+              </p>
+            </div>
+            <div className="animated fadeIn ui search">
               <div class="ui icon input" style={this.state.style.search}>
                 <input
                   className="prompt"
@@ -271,19 +299,22 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <h1 style={this.state.style.landingh1}>Top Stories</h1>
-          <Stories TopStories={this.state.TopStories} />
-          <h1 style={this.state.style.landingh1}>Catagories</h1>
-          <Grid
-            Catogories={this.state.CatPics}
-            CatagoryPicked={this.CatagoryPicked}
-          />
-          <h1 style={this.state.style.landingh1}>Sources</h1>
-          <div className="grid" style={this.state.style.logos}>
-            <Source
-              Images={this.state.Sources}
-              SourceSelection={this.SourceSelection}
+          <div className="animated slideInLeft">
+            {" "}
+            <h1 style={this.state.style.landingh1}>Top Stories</h1>
+            <Stories TopStories={this.state.TopStories} />
+            <h1 style={this.state.style.landingh1}>Catagories</h1>
+            <Grid
+              Catogories={this.state.CatPics}
+              CatagoryPicked={this.CatagoryPicked}
             />
+            <h1 style={this.state.style.landingh1}>Sources</h1>
+            <div className="grid" style={this.state.style.logos}>
+              <Source
+                Images={this.state.Sources}
+                SourceSelection={this.SourceSelection}
+              />
+            </div>
           </div>
         </div>
       );

@@ -1,19 +1,20 @@
 import React, { Component } from "react";
+import "../Card/Card.css";
 
 function Card(props) {
-  const style = {
-    width: "92em !important",
-    marginLeft: "5em !important"
-  };
   console.log(props);
   return props.data.articles.map(story => {
     return (
-      <div
-        className="card"
-        style={{ width: "92em !important", marginLeft: "5em !important" }}
-      >
+      <div className="card">
         <div className="image">
-          <img src={story.urlToImage} />
+          <img
+            src={
+              story.urlToImage
+                ? story.urlToImage
+                : "https://colorlib.com/wp/wp-content/uploads/sites/2/thumbnail_newspaper-mockups.jpg"
+            }
+            alt="news article"
+          />
         </div>
         <div className="content">
           <div className="header">{story.title}</div>
