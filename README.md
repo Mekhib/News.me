@@ -1,3 +1,4 @@
+View the Deployed site here => https://news-me-5c1ca.web.app/
 News.Me: A web-app for the news conscious
 
 News.me is a simple, single page React app (Created using create-react-app) That displays top stories, and allows a user to view stories based on category, sources or user defined search and display results in card like layout.
@@ -11,6 +12,9 @@ News api: API for gathering news info: (https://newsapi.org/)
 OpenWeather: Weather information (https://openweathermap.org/api)
 Pexels: Stock Images for components (https://www.pexels.com/api/new/)
 ClearBit: API for images and company logos (https://logo.clearbit.com/)
+
+Deployment:
+Firebase
 
 Bugs and future updates:
 Search Functionality (coming soon)
