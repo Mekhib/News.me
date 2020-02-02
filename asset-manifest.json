@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Mekhib/News.me/static/css/main.9589200c.chunk.css",
-    "main.js": "/Mekhib/News.me/static/js/main.3723be66.chunk.js",
-    "main.js.map": "/Mekhib/News.me/static/js/main.3723be66.chunk.js.map",
-    "runtime-main.js": "/Mekhib/News.me/static/js/runtime-main.6cdcd970.js",
-    "runtime-main.js.map": "/Mekhib/News.me/static/js/runtime-main.6cdcd970.js.map",
-    "static/css/2.1cc9201e.chunk.css": "/Mekhib/News.me/static/css/2.1cc9201e.chunk.css",
-    "static/js/2.23ee21bc.chunk.js": "/Mekhib/News.me/static/js/2.23ee21bc.chunk.js",
-    "static/js/2.23ee21bc.chunk.js.map": "/Mekhib/News.me/static/js/2.23ee21bc.chunk.js.map",
-    "index.html": "/Mekhib/News.me/index.html",
-    "precache-manifest.3b0963818b51299dfa03f6a4a0cc8ec9.js": "/Mekhib/News.me/precache-manifest.3b0963818b51299dfa03f6a4a0cc8ec9.js",
-    "service-worker.js": "/Mekhib/News.me/service-worker.js",
-    "static/css/2.1cc9201e.chunk.css.map": "/Mekhib/News.me/static/css/2.1cc9201e.chunk.css.map",
-    "static/css/main.9589200c.chunk.css.map": "/Mekhib/News.me/static/css/main.9589200c.chunk.css.map",
-    "static/js/2.23ee21bc.chunk.js.LICENSE": "/Mekhib/News.me/static/js/2.23ee21bc.chunk.js.LICENSE"
+    "main.css": "/news-me/static/css/main.9589200c.chunk.css",
+    "main.js": "/news-me/static/js/main.f05beaf0.chunk.js",
+    "main.js.map": "/news-me/static/js/main.f05beaf0.chunk.js.map",
+    "runtime-main.js": "/news-me/static/js/runtime-main.1be4e479.js",
+    "runtime-main.js.map": "/news-me/static/js/runtime-main.1be4e479.js.map",
+    "static/css/2.1cc9201e.chunk.css": "/news-me/static/css/2.1cc9201e.chunk.css",
+    "static/js/2.a07ad6a5.chunk.js": "/news-me/static/js/2.a07ad6a5.chunk.js",
+    "static/js/2.a07ad6a5.chunk.js.map": "/news-me/static/js/2.a07ad6a5.chunk.js.map",
+    "index.html": "/news-me/index.html",
+    "precache-manifest.23bfa3efe8c6d4d76513beb796e29093.js": "/news-me/precache-manifest.23bfa3efe8c6d4d76513beb796e29093.js",
+    "service-worker.js": "/news-me/service-worker.js",
+    "static/css/2.1cc9201e.chunk.css.map": "/news-me/static/css/2.1cc9201e.chunk.css.map",
+    "static/css/main.9589200c.chunk.css.map": "/news-me/static/css/main.9589200c.chunk.css.map",
+    "static/js/2.a07ad6a5.chunk.js.LICENSE": "/news-me/static/js/2.a07ad6a5.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.6cdcd970.js",
+    "static/js/runtime-main.1be4e479.js",
     "static/css/2.1cc9201e.chunk.css",
-    "static/js/2.23ee21bc.chunk.js",
+    "static/js/2.a07ad6a5.chunk.js",
     "static/css/main.9589200c.chunk.css",
-    "static/js/main.3723be66.chunk.js"
+    "static/js/main.f05beaf0.chunk.js"
   ]
 }
